@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +14,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Barlow:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,8 +22,8 @@
     :root {
       --white: #ffffff;
       --black: #0a0a0a;
-      --dust: #c8a96e;
-      --dust-light: #e8c987;
+      --dust: #b88365;
+      --dust-light: #c4a182;
       --nav-height: 72px;
     }
 
@@ -54,15 +56,20 @@
     }
 
     .nav-logo a {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: 0.12em;
-      color: var(--white);
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
-      transition: color 0.2s;
+      transition: opacity 0.2s;
     }
-    .nav-logo a span { color: var(--dust); }
-    .nav-logo a:hover { color: var(--dust-light); }
+    .nav-logo a:hover { opacity: 0.8; }
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      filter: brightness(1);
+      transition: filter 0.2s;
+    }
 
     .nav-links {
       display: flex;
@@ -71,9 +78,9 @@
     }
 
     .nav-links a {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 300;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.75);
@@ -109,7 +116,7 @@
       display: flex;
       align-items: center;
     }
-    .nav-social a:hover { color: var(--dust-light); transform: translateY(-2px); }
+    .nav-social a:hover { color: var(--white); transform: translateY(-2px); }
     .nav-social svg { width: 18px; height: 18px; fill: currentColor; }
 
     /* ─── HERO ─── */
@@ -138,7 +145,7 @@
     .hero-dust-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 60% 70%, rgba(200,169,110,0.08) 0%, transparent 70%);
+      background: radial-gradient(ellipse at 60% 70%, rgba(200,169,110,0.08) 0%, transparent 90%);
       pointer-events: none;
     }
 
@@ -150,23 +157,23 @@
     }
 
     .hero-eyebrow {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 0.8rem;
-      font-weight: 600;
+      font-weight: 400;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: var(--dust);
+      color: var(--white);
       margin-bottom: 1.25rem;
       opacity: 0;
       animation: fadeUp 0.8s 0.3s forwards;
     }
 
     .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4rem, 12vw, 10rem);
+      font-family: 'Racing Sans One', sans-serif;
+      font-size: clamp(4rem, 10vw, 10rem);
       line-height: 0.9;
       letter-spacing: 0.04em;
-      color: var(--white);
+      color: var(--dust-light);
       text-shadow: 0 4px 32px rgba(0,0,0,0.5);
       opacity: 0;
       animation: fadeUp 0.9s 0.5s forwards;
@@ -175,11 +182,11 @@
     .hero-title span { color: var(--dust); }
 
     .hero-subtitle {
-      font-family: 'Barlow', sans-serif;
-      font-size: clamp(0.9rem, 2vw, 1.15rem);
-      font-weight: 300;
+      font-family: 'Lato', sans-serif;
+      font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+      font-weight: 100;
       letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.9);
       margin-top: 1.5rem;
       max-width: 480px;
       margin-left: auto;
@@ -209,40 +216,37 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
       cursor: pointer;
       opacity: 0;
       animation: fadeUp 0.9s 1.2s forwards;
       transition: opacity 0.4s;
+      background: none;
+      border: none;
+      padding: 0;
     }
 
     .scroll-cta.hidden { opacity: 0 !important; }
 
-    .scroll-cta span {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+    .scroll-cta svg {
+      width: 36px;
+      height: 36px;
+      fill: none;
+      stroke: rgba(255,255,255,0.7);
+      stroke-width: 1.5;
+      animation: bounceDouble 2s infinite;
+      transition: stroke 0.2s;
     }
 
-    .scroll-cta .arrow {
-      width: 28px;
-      height: 28px;
-      border-right: 2px solid var(--dust);
-      border-bottom: 2px solid var(--dust);
-      transform: rotate(45deg);
-      animation: bounce 1.8s infinite;
-    }
+    .scroll-cta:hover svg { stroke: var(--dust-light); }
 
-    @keyframes bounce {
-      0%, 100% { transform: rotate(45deg) translateY(0); }
-      50% { transform: rotate(45deg) translateY(6px); }
+    @keyframes bounceDouble {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(7px); }
     }
 
     /* ─── TRANSITION BAND ─── */
     .transition-band {
-      background: linear-gradient(to bottom, #ffffff 0%, #1a1a1a 100%);
+      background: linear-gradient(to bottom, #ffffff 0%, #1a1a1a 150%);
       padding: 5rem 2rem 4rem;
       position: relative;
     }
@@ -254,10 +258,10 @@
     }
 
     .transition-text .label {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #888;
       margin-bottom: 1.25rem;
@@ -279,7 +283,7 @@
     /* ─── GALLERY SECTION ─── */
     .gallery-section {
       background: var(--black);
-      padding: 2rem 0 5rem;
+      padding: 0rem 0 5rem;
     }
 
     .gallery-grid {
@@ -346,7 +350,7 @@
     }
 
     .gallery-card .card-year {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Racing Sans One', sans-serif;
       font-size: clamp(3rem, 6vw, 5.5rem);
       letter-spacing: 0.08em;
       color: var(--white);
@@ -361,8 +365,8 @@
     }
 
     .gallery-card .card-tagline {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.7rem;
+      font-family: 'Lato Light', sans-serif;
+      font-size: 0.55rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.55);
@@ -399,7 +403,7 @@
     .gallery-card .card-arrow svg {
       width: 14px;
       height: 14px;
-      fill: var(--dust);
+      fill: var(--dust-light);
     }
 
     /* ─── FOOTER ─── */
@@ -418,16 +422,18 @@
     }
 
     .footer-logo a {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.12em;
-      color: var(--white);
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
-      transition: color 0.2s;
+      transition: opacity 0.2s;
     }
-
-    .footer-logo a span { color: var(--dust); }
-    .footer-logo a:hover { color: var(--dust-light); }
+    .footer-logo a:hover { opacity: 0.75; }
+    .footer-logo img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
 
     .footer-links {
       display: flex;
@@ -436,9 +442,9 @@
     }
 
     .footer-links a {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 300;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.55);
@@ -464,7 +470,7 @@
       align-items: center;
     }
 
-    .footer-social a:hover { color: var(--dust-light); transform: translateY(-2px); }
+    .footer-social a:hover { color: var(--white); transform: translateY(-2px); }
     .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
 
     .footer-copy {
@@ -505,7 +511,7 @@
 
     .back-to-top.visible { opacity: 1; pointer-events: auto; }
     .back-to-top:hover { background: rgba(200,169,110,0.15); transform: translateY(-3px); }
-    .back-to-top svg { width: 18px; height: 18px; fill: var(--dust); }
+    .back-to-top svg { width: 18px; height: 18px; fill: var(--dust-light); }
 
     /* ─── SCROLL REVEAL ─── */
     .reveal {
@@ -550,7 +556,7 @@
   <!-- NAVBAR -->
   <nav id="navbar">
     <div class="nav-logo">
-      <a href="index.html">WRC<span>KE</span></a>
+      <a href="index.html"><img src="images/logo.png" alt="WRC Safari Rally Kenya" /></a>
     </div>
     <ul class="nav-links">
       <li><a href="gallery/2024.html">2024</a></li>
@@ -585,14 +591,16 @@
     <div class="hero-dust-overlay"></div>
 
     <div class="hero-content" id="heroContent">
-      <p class="hero-eyebrow">Kenya · East Africa · WRC Round</p>
-      <h1 class="hero-title">Safari<br><span>Rally</span></h1>
-      <p class="hero-subtitle">Raw speed through red dust. Every frame a collision of machine, wildlife and wilderness.</p>
+      <p class="hero-eyebrow">Kenya · WRC Round</p>
+      <h1 class="hero-title">Safari Rally</h1>
+      <p class="hero-subtitle">Shot by Meteur.</p>
     </div>
 
-    <button class="scroll-cta" id="scrollCta" onclick="document.getElementById('below-fold').scrollIntoView({behavior:'smooth'})">
-      <span>Scroll</span>
-      <div class="arrow"></div>
+    <button class="scroll-cta" id="scrollCta" onclick="document.getElementById('below-fold').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down">
+      <svg viewBox="0 0 24 36" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="4,2 12,10 20,2"/>
+        <polyline points="4,14 12,22 20,14"/>
+      </svg>
     </button>
   </section>
 
@@ -600,7 +608,7 @@
   <section class="transition-band" id="below-fold">
     <div class="transition-text reveal">
       <p class="label">Through the Lens</p>
-      <p>The Kenyan savannah becomes an arena of pure spectacle each June — where <strong>rally cars carve through Naivasha's volcanic terrain</strong>, hippos watch from the marshes, and clouds of red dust swallow everything in their wake. This is a portfolio documenting those extraordinary encounters between man, machine and the wild.</p>
+      <p>Heat, dust, mud, rain, car breaking rocks and sideways action... The Safari Rally.</p>
     </div>
   </section>
 
@@ -657,7 +665,7 @@
   <footer>
     <div class="footer-nav">
       <div class="footer-logo">
-        <a href="index.html">WRC<span>KE</span></a>
+        <a href="index.html"><img src="images/logo.png" alt="WRC Safari Rally Kenya" /></a>
       </div>
       <ul class="footer-links">
         <li><a href="gallery/2024.html">2024</a></li>
@@ -677,7 +685,7 @@
       </div>
     </div>
     <div class="footer-copy">
-      <p>&copy; <span id="year"></span> WRC Safari Rally Kenya Photography &mdash; All Rights Reserved</p>
+      <p>&copy; <span id="year"></span> Gallery 54 &mdash; All Rights Reserved</p>
     </div>
   </footer>
 
