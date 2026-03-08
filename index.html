@@ -278,10 +278,50 @@
       font-style: italic;
     }
 
-    /* ─── GALLERY SECTION ─── */
+/* ─── GALLERY SECTION ─── */
     .gallery-section {
+      position: relative;
+      padding: 0 0 5rem;
+      overflow: hidden;
       background: var(--black);
-      padding: 0rem 0 5rem;
+    }
+
+    /* Dust transition image — smoky particle billow fading into black */
+    .gallery-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0; right: 0;
+      height: 680px;
+      z-index: 0;
+      pointer-events: none;
+      background: url('images/dust-transition.png') center top / cover no-repeat;
+      opacity: 1;
+    }
+
+    /* Mask: top stays transparent (image shows through), bottom dissolves to solid black */
+    .gallery-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0; right: 0;
+      height: 680px;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(to bottom,
+        rgba(10,10,10,0)   0%,
+        rgba(10,10,10,0)   45%,
+        rgba(10,10,10,0.6) 65%,
+        rgba(10,10,10,1)   85%,
+        rgba(10,10,10,1)   100%
+      );
+    }
+
+    /* Ensure text and grid sit above the dust layers */
+    .transition-band,
+    .gallery-grid {
+      position: relative;
+      z-index: 1;
     }
 
     .gallery-grid {
@@ -289,10 +329,10 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 0;
       width: 100%;
+      align-items: flex-end;
     }
 
-    /* Inverted pyramid: row 1 spans full width conceptually via visual weight */
-    /* But 3 equal cols — visual pyramid via order + staggered heights */
+    /* Staircase: shortest left, tallest right — tops step down like stairs */
     .gallery-card {
       position: relative;
       overflow: hidden;
@@ -301,10 +341,9 @@
       text-decoration: none;
     }
 
-    /* Pyramid: first card is tallest, last is shortest */
-    .gallery-card:nth-child(1) { aspect-ratio: 3/4; }
-    .gallery-card:nth-child(2) { aspect-ratio: 3/3.5; }
-    .gallery-card:nth-child(3) { aspect-ratio: 3/3; }
+    .gallery-card:nth-child(1) { height: 58vw; min-height: 380px; max-height: 820px; }
+    .gallery-card:nth-child(2) { height: 48vw; min-height: 320px; max-height: 680px; }
+    .gallery-card:nth-child(3) { height: 38vw; min-height: 260px; max-height: 540px; }
 
     .gallery-card .img-primary,
     .gallery-card .img-hover {
@@ -363,8 +402,8 @@
     }
 
     .gallery-card .card-tagline {
-      font-family: 'Lato Light', sans-serif;
-      font-size: 0.55rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.55);
@@ -401,8 +440,9 @@
     .gallery-card .card-arrow svg {
       width: 14px;
       height: 14px;
-      fill: var(--dust-light);
+      fill: var(--dust);
     }
+
 
     /* ─── FOOTER ─── */
     footer {
