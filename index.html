@@ -22,7 +22,7 @@
       --black: #0a0a0a;
       --dust: #b88365;
       --dust-light: #c4a182;
-      --nav-height: 72px;
+      --nav-height: 120px;
     }
 
     html { scroll-behavior: smooth; }
@@ -48,7 +48,7 @@
     }
 
     nav.scrolled {
-      background: rgba(10,10,10,0.92);
+      background: rgba(10,10,10,0.20);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(200,169,110,0.15);
     }
@@ -278,7 +278,7 @@
       font-style: italic;
     }
 
-/* ─── GALLERY SECTION ─── */
+  /* ─── GALLERY SECTION ─── */
     .gallery-section {
       position: relative;
       padding: 0 0 5rem;
@@ -442,7 +442,6 @@
       height: 14px;
       fill: var(--dust);
     }
-
 
     /* ─── FOOTER ─── */
     footer {
@@ -629,7 +628,7 @@
     <div class="hero-dust-overlay"></div>
 
     <div class="hero-content" id="heroContent">
-      <p class="hero-eyebrow">Kenya · WRC Round</p>
+      <p class="hero-eyebrow">WRC Round - Kenya</p>
       <h1 class="hero-title">Safari Rally</h1>
       <p class="hero-subtitle">Shot by Meteur.</p>
     </div>
@@ -642,16 +641,15 @@
     </button>
   </section>
 
-  <!-- TRANSITION BAND -->
-  <section class="transition-band" id="below-fold">
-    <div class="transition-text reveal">
-      <p class="label">Through the Lens</p>
-      <p>Heat, dust, mud, rain, car breaking rocks and sideways action... The Safari Rally.</p>
-    </div>
-  </section>
+<!-- GALLERY SECTION (includes transition text — dust effect unifies both) -->
+  <section class="gallery-section" id="below-fold">
 
-  <!-- GALLERY SECTION -->
-  <section class="gallery-section">
+    <div class="transition-band">
+      <div class="transition-text reveal">
+        <p class="label">Through the Lens</p>
+        <p>Sun, dust, rain, mud, suspension breaking rocks, and lots of sideways action...<br><span>The Safari Rally.</span></p>
+      </div>
+    </div>
     <div class="gallery-grid">
 
       <!-- 2026 — first, tallest -->
@@ -698,6 +696,7 @@
 
     </div>
   </section>
+
 
   <!-- FOOTER -->
   <footer>
