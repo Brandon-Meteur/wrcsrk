@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +21,8 @@
     :root {
       --white: #ffffff;
       --black: #0a0a0a;
-      --dust: #c8a96e;
-      --dust-light: #e8c987;
+      --dust: #b88365;
+      --dust-light: #c4a182;
       --nav-height: 72px;
     }
 
@@ -76,9 +77,9 @@
     }
 
     .nav-links a {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 300;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.75);
@@ -114,7 +115,7 @@
       display: flex;
       align-items: center;
     }
-    .nav-social a:hover { color: var(--dust-light); transform: translateY(-2px); }
+    .nav-social a:hover { color: var(--white); transform: translateY(-2px); }
     .nav-social svg { width: 18px; height: 18px; fill: currentColor; }
 
     /* ─── HERO ─── */
@@ -143,7 +144,7 @@
     .hero-dust-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 60% 70%, rgba(200,169,110,0.08) 0%, transparent 70%);
+      background: radial-gradient(ellipse at 60% 70%, rgba(200,169,110,0.08) 0%, transparent 90%);
       pointer-events: none;
     }
 
@@ -155,12 +156,12 @@
     }
 
     .hero-eyebrow {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 0.8rem;
-      font-weight: 600;
+      font-weight: 400;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: var(--dust);
+      color: var(--white);
       margin-bottom: 1.25rem;
       opacity: 0;
       animation: fadeUp 0.8s 0.3s forwards;
@@ -168,10 +169,10 @@
 
     .hero-title {
       font-family: 'Racing Sans One', sans-serif;
-      font-size: clamp(4rem, 12vw, 10rem);
+      font-size: clamp(4rem, 10vw, 10rem);
       line-height: 0.9;
       letter-spacing: 0.04em;
-      color: var(--white);
+      color: var(--dust-light);
       text-shadow: 0 4px 32px rgba(0,0,0,0.5);
       opacity: 0;
       animation: fadeUp 0.9s 0.5s forwards;
@@ -180,11 +181,11 @@
     .hero-title span { color: var(--dust); }
 
     .hero-subtitle {
-      font-family: 'Barlow', sans-serif;
-      font-size: clamp(0.9rem, 2vw, 1.15rem);
-      font-weight: 300;
+      font-family: 'Lato', sans-serif;
+      font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+      font-weight: 100;
       letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.9);
       margin-top: 1.5rem;
       max-width: 480px;
       margin-left: auto;
@@ -244,7 +245,7 @@
 
     /* ─── TRANSITION BAND ─── */
     .transition-band {
-      background: linear-gradient(to bottom, #ffffff 0%, #1a1a1a 100%);
+      background: linear-gradient(to bottom, #ffffff 0%, #1a1a1a 150%);
       padding: 5rem 2rem 4rem;
       position: relative;
     }
@@ -256,10 +257,10 @@
     }
 
     .transition-text .label {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #888;
       margin-bottom: 1.25rem;
@@ -281,7 +282,7 @@
     /* ─── GALLERY SECTION ─── */
     .gallery-section {
       background: var(--black);
-      padding: 2rem 0 5rem;
+      padding: 0rem 0 5rem;
     }
 
     .gallery-grid {
@@ -363,8 +364,8 @@
     }
 
     .gallery-card .card-tagline {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.7rem;
+      font-family: 'Lato Light', sans-serif;
+      font-size: 0.55rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.55);
@@ -401,7 +402,7 @@
     .gallery-card .card-arrow svg {
       width: 14px;
       height: 14px;
-      fill: var(--dust);
+      fill: var(--dust-light);
     }
 
     /* ─── FOOTER ─── */
@@ -440,9 +441,9 @@
     }
 
     .footer-links a {
-      font-family: 'Barlow Condensed', sans-serif;
+      font-family: 'Lato', sans-serif;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 300;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.55);
@@ -468,7 +469,7 @@
       align-items: center;
     }
 
-    .footer-social a:hover { color: var(--dust-light); transform: translateY(-2px); }
+    .footer-social a:hover { color: var(--white); transform: translateY(-2px); }
     .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
 
     .footer-copy {
@@ -509,7 +510,7 @@
 
     .back-to-top.visible { opacity: 1; pointer-events: auto; }
     .back-to-top:hover { background: rgba(200,169,110,0.15); transform: translateY(-3px); }
-    .back-to-top svg { width: 18px; height: 18px; fill: var(--dust); }
+    .back-to-top svg { width: 18px; height: 18px; fill: var(--dust-light); }
 
     /* ─── SCROLL REVEAL ─── */
     .reveal {
@@ -589,9 +590,9 @@
     <div class="hero-dust-overlay"></div>
 
     <div class="hero-content" id="heroContent">
-      <p class="hero-eyebrow">Kenya · East Africa · WRC Round</p>
-      <h1 class="hero-title">Safari<br><span>Rally</span></h1>
-      <p class="hero-subtitle">Raw speed through red dust. Every frame a collision of machine, wildlife and wilderness.</p>
+      <p class="hero-eyebrow">Kenya · WRC Round</p>
+      <h1 class="hero-title">Safari Rally</h1>
+      <p class="hero-subtitle">Shot by Meteur.</p>
     </div>
 
     <button class="scroll-cta" id="scrollCta" onclick="document.getElementById('below-fold').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down">
@@ -606,7 +607,7 @@
   <section class="transition-band" id="below-fold">
     <div class="transition-text reveal">
       <p class="label">Through the Lens</p>
-      <p>The Kenyan savannah becomes an arena of pure spectacle each June — where <strong>rally cars carve through Naivasha's volcanic terrain</strong>, hippos watch from the marshes, and clouds of red dust swallow everything in their wake. This is a portfolio documenting those extraordinary encounters between man, machine and the wild.</p>
+      <p>Heat, dust, mud, rain, car breaking rocks and sideways action... The Safari Rally.</p>
     </div>
   </section>
 
@@ -683,7 +684,7 @@
       </div>
     </div>
     <div class="footer-copy">
-      <p>&copy; <span id="year"></span> WRC Safari Rally Kenya Photography &mdash; All Rights Reserved</p>
+      <p>&copy; <span id="year"></span> Gallery 54 &mdash; All Rights Reserved</p>
     </div>
   </footer>
 
@@ -745,3 +746,4 @@
   </script>
 </body>
 </html>
+
